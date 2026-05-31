@@ -1,0 +1,52 @@
+batch_number: 4
+sides:
+- top
+- bottom
+workspace: C:/Users/57746/Desktop/newpipeline
+SIDE_INPUTS:
+  top:
+    images: C:/Users/57746/Desktop/newpipeline/images/batch${batch_number}/top_images
+    masks: C:/Users/57746/Desktop/newpipeline/images/batch${batch_number}/top_masks
+  bottom:
+    images: C:/Users/57746/Desktop/newpipeline/images/batch${batch_number}/bottom_images
+    masks: C:/Users/57746/Desktop/newpipeline/images/batch${batch_number}/bottom_masks
+TOP_K_FRAGMENTS: 8
+USE_MASKS: true
+PIPELINE_PYTHON: C:/Users/57746/anaconda3/envs/mapany/python.exe
+PREPROCESS_REUSE_DENSE: false
+PREPROCESS_PARALLEL_SIDES: false
+PREPROCESS_PARALLEL_WORKERS: 8
+METASHAPE_EXE: D:\Program Files\Agisoft\Metashape Pro\metashape.exe
+METASHAPE_MATCH_DOWNSCALE: 0
+METASHAPE_DEPTH_DOWNSCALE: 1
+METASHAPE_DEPTH_FILTER: mild
+METASHAPE_POINT_CLOUD_MAX_NEIGHBORS: 100
+METASHAPE_KEYPOINT_LIMIT: 800000
+METASHAPE_KEYPOINT_LIMIT_PER_MPX: 800000
+METASHAPE_TIEPOINT_LIMIT: 20000
+METASHAPE_MAX_NEIGHBORS: 48
+METASHAPE_LAYOUT: prefix-sensors
+METASHAPE_BUILD_MODEL: false
+METASHAPE_USE_MASKS: true
+METASHAPE_MASK_MODE: metashape
+METASHAPE_MASK_MATCHING: true
+METASHAPE_MASK_TIEPOINTS: false
+METASHAPE_REUSE: false
+
+# Point cloud filtering / fragment split
+WHITE_FILTER_ENABLE: false  # 一定不要开启，除非你知道自己在做什么
+WHITE_V_MIN: 0.75
+WHITE_S_MAX: 0.25
+WHITE_MIN_RGB: 0.65
+WHITE_RADIUS_CLEANUP: true
+WHITE_RADIUS: 0.01
+WHITE_MIN_POINTS: 10
+
+MIN_POINTS: 800
+
+# CloudCompare-style grid connected components on the shard/table plane.
+# The clustering runs on occupied 2D grid cells; saved fragments keep original points.
+SPLIT_GRID_SIZE: 0.01
+SPLIT_GRID_CONNECTIVITY: 8
+SPLIT_GRID_MIN_CELL_POINTS: 1
+SPLIT_PREVIEW_MAX_POINTS: 80000
